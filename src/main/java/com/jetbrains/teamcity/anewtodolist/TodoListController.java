@@ -32,7 +32,11 @@ public class TodoListController {
     @Value("${teamcity.password}")
     private String teamcityToken;
 
-    private Integer latestBuild = null;
+    private Integer latestBuild = 1; // hello
+
+	// share link in clipboard
+
+	// https://fleet.jetbrains.com/?version=1.3.111&workspaceId=jp8jainls3672pv72hik
 
     @RequestMapping(method =  { RequestMethod.GET}, value = "deploy")
     public String deployHtml(Model model) {
