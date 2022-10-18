@@ -47,7 +47,9 @@ object Build : BuildType({
             name = "print"
             content = """
                 for (i in 1..10) {
-                    println(i)
+                    script {
+                        scriptContent = "mvn --version"
+                    }
                 }
             """.trimIndent()
         }  
