@@ -27,7 +27,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 
 version = "2022.04"
 
-operatingSystemMap = mapOf('W' to "Windows", 'L' to "Linux", 'M' to "MacOS")
+val operatingSystemMap = mapOf('W' to "Windows", 'L' to "Linux", 'M' to "MacOS")
 
 project {
 
