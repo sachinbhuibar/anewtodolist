@@ -43,9 +43,13 @@ object Build : BuildType({
             goals = "clean package"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
-        script {
-            name = "Print"
-            scriptContent = """echo print"""  
+        kotlinScript {
+            name = "print"
+            content = """
+                for (i in 1..10) {
+                    println(i)
+                }
+            """.trimIndent()
         }  
     }
 
