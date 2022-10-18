@@ -26,6 +26,8 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 
 version = "2022.04"
 
+operatingSystemMap = mapOf('W' to "Windows", 'L' to "Linux", 'M' to "MacOS")
+
 project {
 
     buildType(Build)
@@ -33,7 +35,10 @@ project {
 
 object Build : BuildType({
     name = "Build"
-
+    params {
+        select("operatingSystem", "", display = ParameterDisplay.PROMPT,
+                options = listOf("W", "L", "M"))
+    }
     vcs {
         root(DslContext.settingsRoot)
     }
@@ -43,11 +48,10 @@ object Build : BuildType({
             goals = "clean package"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         } 
-
-        for (i in 1..10) {
-            script {
-                scriptContent = "mvn --version"
-            }
+        script {
+            scriptContent = """ 
+                echo 'building the artifacts for %operatingSystem%'
+            """
         }
     }
 
