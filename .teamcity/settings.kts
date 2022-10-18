@@ -42,17 +42,13 @@ object Build : BuildType({
         maven {
             goals = "clean package"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
+        } 
+
+        for (i in 1..10) {
+            script {
+                scriptContent = "mvn --version"
+            }
         }
-        kotlinScript {
-            name = "print"
-            content = """
-                for (i in 1..10) {
-                    script {
-                        scriptContent = "mvn --version"
-                    }
-                }
-            """.trimIndent()
-        }  
     }
 
     triggers {
