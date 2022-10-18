@@ -43,6 +43,14 @@ object Build : BuildType({
             goals = "clean package"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
+        script {
+            name = "Print"
+            for (i in 1..5) {
+                scriptContent = """echo print"""
+            }
+            
+            
+        }  
     }
 
     triggers {
