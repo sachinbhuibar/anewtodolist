@@ -45,11 +45,7 @@ object Build : BuildType({
         }
         script {
             name = "Print"
-            for (i in 1..5) {
-                scriptContent = """echo print"""
-            }
-            
-            
+            scriptContent = """echo print"""  
         }  
     }
 
